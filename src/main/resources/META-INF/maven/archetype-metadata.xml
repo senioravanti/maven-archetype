@@ -1,0 +1,36 @@
+<archetype-descriptor
+  xmlns="http://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.2.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.2.0 https://maven.apache.org/xsd/archetype-descriptor-1.2.0.xsd"
+  name="quickstart">
+  <fileSets>
+    <fileSet encoding="UTF-8" filtered="true" packaged="true">
+      <directory>src/main/java</directory>
+    </fileSet>
+    <fileSet encoding="UTF-8" filtered="true" packaged="false">
+      <directory>src/main/resources</directory>
+    </fileSet>
+    <fileSet encoding="UTF-8" filtered="true" packaged="true">
+      <directory>src/test/java</directory>
+    </fileSet>
+    <fileSet encoding="UTF-8" filtered="true" packaged="false">
+      <directory/>
+      <includes>
+        <include>pom.xml</include>
+        <include>Dockerfile.native</include>
+        <include>__gitignore__</include>
+      </includes>
+    </fileSet>
+  </fileSets>
+
+  <requiredProperties>
+    <!-- https://stackoverflow.com/questions/39080569/change-package-property-in-maven-archetype -->
+    <requiredProperty key="package">
+      <defaultValue>${groupId}.${artifactId}</defaultValue>
+    </requiredProperty>
+    <!-- https://stackoverflow.com/questions/32580244/gitignore-file-is-not-copied-to-archetype-jar-workarounds -->
+    <requiredProperty key="gitignore">
+      <defaultValue>.gitignore</defaultValue>
+    </requiredProperty>
+  </requiredProperties>
+</archetype-descriptor>
