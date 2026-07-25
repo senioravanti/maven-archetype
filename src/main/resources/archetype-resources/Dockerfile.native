@@ -1,4 +1,4 @@
-FROM ghcr.io/graalvm/graalvm-community:25 AS builder
+FROM ghcr.io/graalvm/graalvm-community:${javaVersion} AS builder
 
 ARG MAVEN_VERSION=3.9.16
 

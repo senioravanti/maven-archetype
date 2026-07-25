@@ -1,12 +1,19 @@
 package ${package}.models;
 
 public record ConfigurationProperties(
-    App app
+    App app,
+    Loggers loggers
 ) {
-    public record App(
+    public record App (
         String groupId,
         String artifactId,
         String version
-    ) {
+    ){
+    }
+
+    public record Loggers (
+        Integer maxExternalFrames,
+        Integer maxCauseDepth
+    ){
     }
 }

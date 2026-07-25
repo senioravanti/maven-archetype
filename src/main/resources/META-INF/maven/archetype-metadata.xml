@@ -3,6 +3,7 @@
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.2.0 https://maven.apache.org/xsd/archetype-descriptor-1.2.0.xsd"
   name="quickstart">
+  <!-- https://maven.apache.org/archetype/archetype-models/archetype-descriptor/archetype-descriptor.html -->
   <fileSets>
     <fileSet encoding="UTF-8" filtered="true" packaged="true">
       <directory>src/main/java</directory>
@@ -17,6 +18,7 @@
       <directory/>
       <includes>
         <include>pom.xml</include>
+        <include>Dockerfile</include>
         <include>Dockerfile.native</include>
         <include>__gitignore__</include>
       </includes>
@@ -24,6 +26,9 @@
   </fileSets>
 
   <requiredProperties>
+    <requiredProperty key="javaVersion">
+      <defaultValue>25</defaultValue>
+    </requiredProperty>
     <!-- https://stackoverflow.com/questions/39080569/change-package-property-in-maven-archetype -->
     <requiredProperty key="package">
       <defaultValue>${groupId}.${artifactId}</defaultValue>
