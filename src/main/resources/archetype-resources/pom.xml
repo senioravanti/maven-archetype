@@ -1,6 +1,6 @@
 ## https://stackoverflow.com/a/43867921
-#set( $ldt = $package.getClass().forName("java.time.LocalDateTime").getMethod("now").invoke(null) )
-#set( $year = $ldt.getYear() )
+    #set( $ldt = $package.getClass().forName("java.time.LocalDateTime").getMethod("now").invoke(null) )
+    #set( $year = $ldt.getYear() )
 <project xmlns="http://maven.apache.org/POM/4.0.0"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
@@ -35,23 +35,31 @@
         <lombok.version>1.18.42</lombok.version>
         <jackson.version>3.2.1</jackson.version>
 
-        <avanti.commons.loggers.version>1.0.0</avanti.commons.loggers.version>
-        <avanti.commons.result.version>2.0.3</avanti.commons.result.version>
+        <avanti.commons.loggers.version>2.0.4</avanti.commons.loggers.version>
+        <avanti.commons.result.version>1.0.0</avanti.commons.result.version>
 
         <apache.commons.text.version>1.15.0</apache.commons.text.version>
 
+        <!-- Test -->
         <junit.version>6.1.1</junit.version>
 
         <!-- Maven plugins -->
-        <maven-compiler-plugin.version>3.14.1</maven-compiler-plugin.version>
-        <maven-shade-plugin.version>3.6.1</maven-shade-plugin.version>
-        <maven-surefire-plugin.version>3.5.5</maven-surefire-plugin.version>
-        <native-maven-plugin.version>1.1.3</native-maven-plugin.version>
-        <exec-maven-plugin.version>3.6.3</exec-maven-plugin.version>
+        <plugin.compiler.version>3.14.1</plugin.compiler.version>
+        <plugin.shade.version>3.6.1</plugin.shade.version>
+        <plugin.surefire.version>3.5.5</plugin.surefire.version>
+        <plugin.native.version>1.1.3</plugin.native.version>
+        <plugin.exec.version>3.6.3</plugin.exec.version>
 
         <!-- Custom properties -->
         <main.class>${project.groupId}.${project.artifactId}.App</main.class>
     </properties>
+
+    <repositories>
+        <repository>
+            <id>jitpack.io</id>
+            <url>https://jitpack.io</url>
+        </repository>
+    </repositories>
 
     <dependencyManagement>
         <dependencies>
@@ -75,16 +83,9 @@
     <dependencies>
         <!-- Logging -->
         <dependency>
-            <groupId>ru.senioravanti.commons</groupId>
-            <artifactId>loggers</artifactId>
+            <groupId>com.github.senioravanti</groupId>
+            <artifactId>java-commons-loggers</artifactId>
             <version>${avanti.commons.loggers.version}</version>
-        </dependency>
-
-        <!-- Utils -->
-        <dependency>
-            <groupId>ru.senioravanti.commons</groupId>
-            <artifactId>result</artifactId>
-            <version>${avanti.commons.result.version}</version>
         </dependency>
 
         <!-- Annotation Processors -->
@@ -129,7 +130,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>${maven-compiler-plugin.version}</version>
+                <version>${plugin.compiler.version}</version>
                 <configuration>
                     <source>${java.version}</source>
                     <target>${java.version}</target>
@@ -146,7 +147,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-shade-plugin</artifactId>
-                <version>${maven-shade-plugin.version}</version>
+                <version>${plugin.shade.version}</version>
                 <dependencies>
                     <dependency>
                         <groupId>org.apache.logging.log4j</groupId>
@@ -190,7 +191,7 @@
             </plugin>
             <plugin>
                 <artifactId>maven-surefire-plugin</artifactId>
-                <version>${maven-surefire-plugin.version}</version>
+                <version>${plugin.surefire.version}</version>
             </plugin>
         </plugins>
         <resources>
@@ -223,7 +224,7 @@
                     <plugin>
                         <groupId>org.graalvm.buildtools</groupId>
                         <artifactId>native-maven-plugin</artifactId>
-                        <version>${native-maven-plugin.version}</version>
+                        <version>${plugin.native.version}</version>
                         <configuration>
                             <agent>
                                 <enabled>true</enabled>
@@ -279,7 +280,7 @@
                     <plugin>
                         <groupId>org.codehaus.mojo</groupId>
                         <artifactId>exec-maven-plugin</artifactId>
-                        <version>${exec-maven-plugin.version}</version>
+                        <version>${plugin.exec.version}</version>
                         <executions>
                             <execution>
                                 <id>java-agent</id>

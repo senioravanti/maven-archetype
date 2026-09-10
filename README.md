@@ -8,7 +8,6 @@
 ## Создать свой архетип
 
 ```sh
-clear
 mvn archetype:generate \
   -DgroupId=ru.senioravanti \
   -DartifactId=archetype \
@@ -17,6 +16,8 @@ mvn archetype:generate \
 ```
 
 Где `artifactId` :: название генерируемого архетипа 
+
+`mvn install` :: Установить архетип в локальный репозиторий.
 
 ## Создать проект на основе архетипа
 

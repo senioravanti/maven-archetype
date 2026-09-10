@@ -1,34 +1,35 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>ru.senioravanti</groupId>
-  <artifactId>archetype</artifactId>
-  <version>1.0.0</version>
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>ru.senioravanti</groupId>
+    <artifactId>archetype</artifactId>
+    <version>1.0.0</version>
 
-  <name>Archetype - archetype</name>
-  <url>https://maven.apache.org</url>
+    <name>Custom Archetype</name>
+    <url>https://github.com/senioravanti/maven-archetype.git</url>
 
-  <properties>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-  </properties>
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <plugin.archetype.version>3.4.1</plugin.archetype.version>
+    </properties>
 
-  <build>
-    <pluginManagement>
-      <plugins>
-        <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-archetype-plugin</artifactId>
-          <version>3.4.1</version>
-        </plugin>
-      </plugins>
-    </pluginManagement>
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-archetype-plugin</artifactId>
+                    <version>${plugin.archetype.version}</version>
+                </plugin>
+            </plugins>
+        </pluginManagement>
 
-    <extensions>
-      <extension>
-        <groupId>org.apache.maven.archetype</groupId>
-        <artifactId>archetype-packaging</artifactId>
-        <version>3.4.1</version>
-      </extension>
-    </extensions>
-  </build>
+        <extensions>
+            <extension>
+                <groupId>org.apache.maven.archetype</groupId>
+                <artifactId>archetype-packaging</artifactId>
+                <version>${plugin.archetype.version}</version>
+            </extension>
+        </extensions>
+    </build>
 </project>
