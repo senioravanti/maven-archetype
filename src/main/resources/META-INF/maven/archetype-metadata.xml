@@ -37,5 +37,8 @@
     <requiredProperty key="gitignore">
       <defaultValue>.gitignore</defaultValue>
     </requiredProperty>
+    <requiredProperty key="version">
+      <defaultValue>1.0.0</defaultValue>
+    </requiredProperty>
   </requiredProperties>
 </archetype-descriptor>
